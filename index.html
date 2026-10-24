@@ -10,18 +10,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS betöltése és konfigurálása a te színeiddel -->
+    <!-- Tailwind CSS betöltése és konfigurálása a pasztell + bordó színekkel -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'deep-red': '#6D0808',      /* Mélyvörös (kiemelések, gombok) */
-                        'dark-red': '#2D0000',      /* Nagyon sötét bordó/vörös (lábléc, címsorok) */
-                        'cream': '#EEEAD7',         /* Krém/Bézs (kártyák és szekciók háttere) */
-                        'muted-green': '#757D6F',   /* Tompított szürkészöld (finom szövegek, szegélyek) */
-                        'soft-pink': '#FFCED8',     /* Lágy rózsaszín (leheletnyi effektekhez) */
+                        'pastel-pink': '#FFCED8',    /* Világos pasztell rózsaszín */
+                        'pastel-gold': '#FFF4DE',    /* Lágy arany/krém háttér */
+                        'pastel-peach': '#FFE8C4',   /* Krémes barack */
+                        'pastel-rose': '#FFB1B1',    /* Sötétebb pasztell rózsaszín (kiemelések) */
+                        'dark-red': '#2D0000',       /* Nagyon sötét bordó (lábléc, fő szövegek) */
+                        'deep-red': '#6D0808',       /* Mélyvörös (apró effektekhez) */
+                        'cream': '#EEEAD7',          /* Lábléc szövegszín */
+                        'muted-green': '#757D6F',    /* Tompított szürkészöld */
                     },
                     fontFamily: {
                         'playfair': ['"Playfair Display"', 'serif'],
@@ -33,9 +36,8 @@
     </script>
 
     <style>
-        /* Egyedi CSS az apró finomításokhoz és animációkhoz */
         body {
-            background-color: #fdfbfb; /* Nagyon finom törtfehér háttér */
+            background-color: #fdfbfb;
         }
         
         .fade-in {
@@ -47,123 +49,122 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Gomb hover effektus */
         .btn-hover {
             transition: all 0.3s ease;
         }
         .btn-hover:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(109, 8, 8, 0.4); /* mélyvörös árnyék */
+            box-shadow: 0 10px 15px -3px rgba(45, 0, 0, 0.3); /* Sötétbordó árnyék */
         }
     </style>
 </head>
 <body class="font-montserrat text-dark-red antialiased">
 
     <!-- Fejléc / Navigáció -->
-    <nav class="bg-white/80 backdrop-blur-md fixed w-full z-50 top-0 shadow-sm">
+    <nav class="bg-white/90 backdrop-blur-md fixed w-full z-50 top-0 shadow-sm">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Logó / Név -->
+                <!-- Logó / Név (Egyszínű) -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="#" class="font-playfair text-2xl font-bold text-dark-red">
-                        <span class="text-deep-red">E</span>szter Cukrászdája<span class="text-deep-red text-3xl">.</span>
+                        Eszter Cukrászdája
                     </a>
                 </div>
-                <!-- Menüpontok (Asztali nézet) -->
+                <!-- Menüpontok -->
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#kezdooldal" class="text-sm font-medium hover:text-deep-red transition-colors">Kezdőlap</a>
-                    <a href="#rolunk" class="text-sm font-medium hover:text-deep-red transition-colors">Történetünk</a>
-                    <a href="#kinalat" class="text-sm font-medium hover:text-deep-red transition-colors">Kínálatunk</a>
-                    <a href="#kapcsolat" class="px-5 py-2 bg-deep-red text-cream text-sm font-semibold rounded-full hover:bg-dark-red hover:text-white transition-colors">Kapcsolat</a>
+                    <a href="#kezdooldal" class="text-sm font-medium hover:text-pastel-rose transition-colors">Kezdőlap</a>
+                    <a href="#rolunk" class="text-sm font-medium hover:text-pastel-rose transition-colors">Történetünk</a>
+                    <a href="#kinalat" class="text-sm font-medium hover:text-pastel-rose transition-colors">Kínálatunk</a>
+                    <a href="#kapcsolat" class="px-5 py-2 bg-pastel-rose text-dark-red text-sm font-semibold rounded-full hover:bg-dark-red hover:text-white transition-colors">Kapcsolat</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Fő Banner (Hero Section) -->
-    <section id="kezdooldal" class="pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-br from-cream to-soft-pink/40">
+    <!-- Fő Banner (Hero Section) Pasztell háttérrel -->
+    <section id="kezdooldal" class="pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-br from-pastel-gold to-pastel-pink">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center fade-in">
             <!-- Szöveges rész -->
             <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
-                <span class="uppercase tracking-widest text-xs font-semibold text-deep-red mb-4 block">Kézműves finomságok</span>
+                <span class="uppercase tracking-widest text-xs font-semibold text-dark-red mb-4 block">Kézműves finomságok</span>
                 <h1 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                    Ahol a hagyomány <br> <span class="italic text-deep-red">édes élménnyé válik.</span>
+                    Ahol a hagyomány édes élménnyé válik.
                 </h1>
                 <p class="text-lg mb-8 text-dark-red/80 leading-relaxed font-light">
                     Hamarosan megnyitjuk Eszter Cukrászdáját Nyíregyháza belvárosában, hogy a legfinomabb süteményekkel és kézműves tortákkal édesítsük meg a napjaidat.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="#kinalat" class="btn-hover px-8 py-3 bg-deep-red text-cream rounded-full font-medium text-center shadow-lg shadow-deep-red/30">Kínálatunk</a>
-                    <a href="#rolunk" class="btn-hover px-8 py-3 bg-white text-dark-red border border-soft-pink rounded-full font-medium text-center hover:bg-soft-pink/20">Rólunk</a>
+                    <a href="#kinalat" class="btn-hover px-8 py-3 bg-dark-red text-white rounded-full font-medium text-center shadow-lg shadow-dark-red/30">Kínálatunk</a>
+                    <a href="#rolunk" class="btn-hover px-8 py-3 bg-white text-dark-red border border-pastel-pink rounded-full font-medium text-center hover:bg-pastel-pink/40">Rólunk</a>
                 </div>
             </div>
             <!-- Kép rész -->
             <div class="md:w-1/2 md:pl-10">
                 <div class="relative">
                     <!-- Dekoratív háttér forma -->
-                    <div class="absolute inset-0 bg-cream rounded-full blur-3xl opacity-80 transform translate-x-10 translate-y-10"></div>
-                    <!-- Fő kép (Placeholder - később cserélhető a sajátotokra) -->
-                    <img src="https://placehold.co/600x750/6D0808/EEEAD7?text=Eszter\nCukrászdája" alt="Cukrászda hangulatkép" class="relative rounded-t-full rounded-b-[4rem] shadow-2xl object-cover h-[500px] w-full border-4 border-white">
+                    <div class="absolute inset-0 bg-pastel-gold rounded-full blur-3xl opacity-80 transform translate-x-10 translate-y-10"></div>
+                    <!-- Fő kép placeholder -->
+                    <img src="https://placehold.co/600x750/FFCED8/2D0000?text=Eszter\nCukrászdája" alt="Cukrászda hangulatkép" class="relative rounded-t-full rounded-b-[4rem] shadow-2xl object-cover h-[500px] w-full border-4 border-white">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Rólunk Szekció -->
+    <!-- Rólunk Szekció az új szöveggel -->
     <section id="rolunk" class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col-reverse md:flex-row items-center gap-12">
-                <!-- Kép a családról/piacról (Placeholder) -->
+                <!-- Kép a családról/piacról -->
                 <div class="md:w-1/2">
                     <div class="grid grid-cols-2 gap-4">
-                        <img src="https://placehold.co/400x500/EEEAD7/2D0000?text=Családi\nReceptek" alt="Családi kép" class="rounded-2xl shadow-md mt-8">
-                        <img src="https://placehold.co/400x500/757D6F/EEEAD7?text=Hagyomány" alt="Kézműves" class="rounded-2xl shadow-md">
+                        <img src="https://placehold.co/400x500/FFF4DE/2D0000?text=Családi\nReceptek" alt="Családi kép" class="rounded-2xl shadow-md mt-8">
+                        <img src="https://placehold.co/400x500/FFE8C4/2D0000?text=Hagyomány" alt="Kézműves" class="rounded-2xl shadow-md">
                     </div>
                 </div>
                 <!-- Szöveg -->
                 <div class="md:w-1/2">
-                    <h2 class="font-playfair text-3xl md:text-4xl font-bold mb-6">A mi <span class="text-deep-red italic">történetünk</span></h2>
+                    <h2 class="font-playfair text-3xl md:text-4xl font-bold mb-6">A mi történetünk</h2>
                     <p class="mb-4 leading-relaxed font-light text-dark-red/90">
-                        Családunk története a nyíregyházi piacon kezdődött, ahol éveken át konyhai eszközöket árusítottunk, de egy idő után úgy éreztük, megérett az idő egy saját üzlet megnyitására. Mivel a lányunk, Eszter igazi szenvedéllyel és tehetséggel készíti a legfinomabb süteményeket, egyértelművé vált, hogy ez az álom egy állandó, beülős cukrászdaként fog megvalósulni Nyíregyháza szívében. Így született meg Eszter Cukrászdája.
+                        Családunk története a nyíregyházi piacon kezdődött, ahol éveken át konyhai eszközöket árusítottunk, de egy idő után úgy éreztük, megérett az idő egy saját üzlet megnyitására.
                     </p>
                     <p class="mb-6 leading-relaxed font-light text-dark-red/90">
-                        Hamarosan egy nagy álmot váltunk valóra: megnyitjuk állandó, beülős cukrászdánkat <strong>Nyíregyháza</strong> szívében. És ezzel nincs vége – a jövőbeli terveink között szerepel, hogy <strong>Debrecenben</strong> is megnyissuk kapuinkat az édesszájú közönség előtt.
+                        Mivel lányunk, Eszter igazi szenvedéllyel és tehetséggel készíti a legfinomabb süteményeket, egyértelművé vált, hogy ez az álom egy állandó, beülős cukrászdaként fog megvalósulni Nyíregyháza szívében. Így született meg Eszter Cukrászdája.
                     </p>
-                    <p class="font-medium text-deep-red">Sok szeretettel és friss süteményekkel várunk!</p>
+                    <p class="font-medium text-dark-red">Sok szeretettel és friss süteményekkel várunk!</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Kínálat Szekció -->
-    <section id="kinalat" class="py-20 bg-cream/40">
+    <section id="kinalat" class="py-20 bg-pastel-gold/30">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="font-playfair text-3xl md:text-4xl font-bold mb-4">Mivel várunk <span class="text-deep-red italic">téged?</span></h2>
+            <h2 class="font-playfair text-3xl md:text-4xl font-bold mb-4">Mivel várunk téged?</h2>
             <p class="max-w-2xl mx-auto text-dark-red/70 mb-12 font-light">Gondosan válogatott, friss alapanyagokból készült ínycsiklandó édességek és kézműves italok.</p>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Kártya 1 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-shadow border border-cream group">
-                    <div class="w-16 h-16 bg-cream rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-deep-red transition-colors">
-                        <svg class="w-8 h-8 text-dark-red group-hover:text-cream transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-shadow border border-pastel-gold group">
+                    <div class="w-16 h-16 bg-pastel-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-pastel-rose transition-colors">
+                        <svg class="w-8 h-8 text-dark-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     </div>
                     <h3 class="font-playfair text-xl font-bold mb-3">Kézműves Torták</h3>
                     <p class="font-light text-sm text-muted-green">Egyedi torták születésnapokra, esküvőkre és családi ünnepekre, prémium alapanyagokból.</p>
                 </div>
                 
                 <!-- Kártya 2 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-shadow border border-cream group">
-                    <div class="w-16 h-16 bg-cream rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-deep-red transition-colors">
-                        <svg class="w-8 h-8 text-dark-red group-hover:text-cream transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 15.75c0-.828-.672-1.5-1.5-1.5H4.5c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5h15c.828 0 1.5-.672 1.5-1.5zM4.5 11.25v-3c0-.828.672-1.5 1.5-1.5h12c.828 0 1.5.672 1.5 1.5v3m-15 0h15m-15 0v3c0 .828.672 1.5 1.5 1.5h12c.828 0 1.5-.672 1.5-1.5v-3"></path></svg>
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-shadow border border-pastel-gold group">
+                    <div class="w-16 h-16 bg-pastel-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-pastel-rose transition-colors">
+                        <svg class="w-8 h-8 text-dark-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 15.75c0-.828-.672-1.5-1.5-1.5H4.5c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5h15c.828 0 1.5-.672 1.5-1.5zM4.5 11.25v-3c0-.828.672-1.5 1.5-1.5h12c.828 0 1.5.672 1.5 1.5v3m-15 0h15m-15 0v3c0 .828.672 1.5 1.5 1.5h12c.828 0 1.5-.672 1.5-1.5v-3"></path></svg>
                     </div>
                     <h3 class="font-playfair text-xl font-bold mb-3">Napi Sütemények</h3>
                     <p class="font-light text-sm text-muted-green">Frissen sült piték, krémesek, macaronok és hagyományos desszertek a mindennapi kényeztetéshez.</p>
                 </div>
 
                 <!-- Kártya 3 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-shadow border border-cream group">
-                    <div class="w-16 h-16 bg-cream rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-deep-red transition-colors">
-                        <svg class="w-8 h-8 text-dark-red group-hover:text-cream transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path></svg>
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-shadow border border-pastel-gold group">
+                    <div class="w-16 h-16 bg-pastel-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-pastel-rose transition-colors">
+                        <svg class="w-8 h-8 text-dark-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path></svg>
                     </div>
                     <h3 class="font-playfair text-xl font-bold mb-3">Kávé és Tea</h3>
                     <p class="font-light text-sm text-muted-green">Különleges kávéköltemények és szálas teák, amelyek tökéletesen kísérik az édességeinket.</p>
@@ -172,14 +173,14 @@
         </div>
     </section>
 
-    <!-- Lábjegyzet / Kapcsolat -->
+    <!-- Lábjegyzet / Kapcsolat (Sötétbordó) -->
     <footer id="kapcsolat" class="bg-dark-red text-cream py-12">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
                 
                 <div class="text-center md:text-left">
                     <a href="#" class="font-playfair text-2xl font-bold text-white block mb-4">
-                        <span class="text-deep-red">E</span>szter Cukrászdája<span class="text-deep-red">.</span>
+                        Eszter Cukrászdája
                     </a>
                     <p class="text-sm font-light text-cream/70 max-w-xs">
                         Minőség és édes pillanatok Nyíregyháza szívében. Kövess minket a közösségi médiában a nyitás részleteiért!
@@ -187,15 +188,14 @@
                 </div>
 
                 <div class="text-center md:text-left">
-                    <h4 class="font-bold text-lg mb-4 text-cream">Tervezett Helyszínek</h4>
-                    <p class="text-sm font-light text-cream/80 mb-2">📍 Nyíregyháza, Belváros</p>
-                    <p class="text-sm font-light text-cream/80">📍 Debrecen (Hamarosan)</p>
+                    <h4 class="font-bold text-lg mb-4 text-cream">Tervezett Helyszín</h4>
+                    <p class="text-sm font-light text-cream/80 mb-2"> Nyíregyháza, Belváros</p>
                 </div>
 
                 <div class="text-center md:text-left">
                     <h4 class="font-bold text-lg mb-4 text-cream">Kapcsolat</h4>
-                    <p class="text-sm font-light text-cream/80 mb-2">✉️ hello@esztercukraszdaja.hu</p>
-                    <p class="text-sm font-light text-cream/80">📞 +36 30 123 4567</p>
+                    <p class="text-sm font-light text-cream/80 mb-2">email: Hamarosan..</p>
+                    <p class="text-sm font-light text-cream/80">telefonszám: Hamarosan...</p>
                 </div>
             </div>
             
